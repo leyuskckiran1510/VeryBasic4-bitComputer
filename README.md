@@ -1,8 +1,8 @@
 # VeryBasic4-bitComputer <br>
 This is just a raw implementation for just to feed out brain a dopamine <br>
-It uses 3bit for data and 1 bit for data/instruction mode; So in total it's a 4bit programmable computer
-Which can be used to build light system or other system. Their is no physical computer as per to say as
-it's just a raw circuit and you can visualize it on [Logisim-Evlution](https://github.com/logisim-evolution/logisim-evolution). Open [Single_BIT](./single_bit_comp.circ) or [ThreeBit](./three_bit_comp.circ) in logisim. 
+It uses 3bit for data and 1 bit for data/instruction mode; So in total it's a 4bit programmable computer<br>
+Which can be used to build light system or other system. Their is no physical computer as per to say as<br>
+it's just a raw circuit and you can visualize it on [Logisim-Evlution](https://github.com/logisim-evolution/logisim-evolution). Open [Single_BIT](./single_bit_comp.circ) or [ThreeBit](./three_bit_comp.circ) in logisim. <br>
 # instructions:- <br>
   A       -> load data to A <br>
   B       -> load data to B  <br>
@@ -43,14 +43,14 @@ it's just a raw circuit and you can visualize it on [Logisim-Evlution](https://g
 > JMP 2// goes to line 2 <br>
 > AC 1 // Sets AC <br>
 > JMP 0 // goes to line 0 <br>
-> A 7 // sets A with value 7
-Use '#' to comment out the line comment
-And any words after first two words will be rejected/ignored
-example:-
- A 5 this loads 5 to A
- ^ ^---second word
- |-----first word 
- the ` this loads 5 to A` will be ignored
+> A 7 // sets A with value 7<br>
+Use '#' to comment out the line comment<br>
+And any words after first two words will be rejected/ignored<br>
+example:-<br>
+ A 5 this loads 5 to A<br>
+ ^ ^---second word<br>
+ |-----first word <br>
+ the ` this loads 5 to A` will be ignored<br>
 ### Look at files Code Example for any refrence<br>
  1)[It's displays 123456000456000456....](./assembler/light_blinker.lkc) in 7-segment<br>
  2)[It moves three stips of light/led from left to right and loops back infintely](./assembler/left_to_right_window.lkc) in main output led<br>
