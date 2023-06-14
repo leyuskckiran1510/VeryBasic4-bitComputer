@@ -51,7 +51,10 @@ it's just a raw circuit and you can visualize it on [Logisim-Evlution](https://g
  ^ ^---second word
  |-----first word 
  the ` this loads 5 to A` will be ignored
- look at file [Code Example](./assembler/light_blinker.lkc) for any refrence
+ look at files Code Example for any refrence
+ 1)[It's displays 123456000456000456....](./assembler/light_blinker.lkc) in 7-segment
+ 2)[It moves three stips of light/led from left to right and loops back infintely](./assembler/left_to_right_window.lkc) in main output led
+ 
 ## ==================================================
 ## to implement later after basics <br>
 ## =================================================
