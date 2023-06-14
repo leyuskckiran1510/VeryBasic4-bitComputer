@@ -51,7 +51,7 @@ it's just a raw circuit and you can visualize it on [Logisim-Evlution](https://g
  ^ ^---second word
  |-----first word 
  the ` this loads 5 to A` will be ignored
- look at file [Code Example](./light_blinker.lkc) for any refrence
+ look at file [Code Example](./assembler/light_blinker.lkc) for any refrence
 ## ==================================================
 ## to implement later after basics <br>
 ## =================================================
