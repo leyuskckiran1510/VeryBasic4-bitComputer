@@ -1,7 +1,8 @@
 # VeryBasic4-bitComputer <br>
 This is just a raw implementation for just to feed out brain a dopamine <br>
 It uses 3bit for data and 1 bit for data/instruction mode; So in total it's a 4bit programmable computer
-Which can be used to build light system or other system
+Which can be used to build light system or other system. Their is no physical computer as per to say as
+it's just a raw circuit and you can visualize it on [Logisim-Evlution](https://github.com/logisim-evolution/logisim-evolution). Open [Single_BIT](./single_bit_comp.circ) or [ThreeBit](./three_bit_comp.circ) in logisim. 
 # instructions:- <br>
   A       -> load data to A <br>
   B       -> load data to B  <br>
@@ -50,7 +51,7 @@ Which can be used to build light system or other system
  ^ ^---second word
  |-----first word 
  the ` this loads 5 to A` will be ignored
- look at file './light_blinker.lkc' for any refrence
+ look at file [Code Example](./light_blinker.lkc) for any refrence
 ## ==================================================
 ## to implement later after basics <br>
 ## =================================================
