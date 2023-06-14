@@ -38,12 +38,12 @@ it's just a raw circuit and you can visualize it on [Logisim-Evlution](https://g
 ## ==============================================
 ## Examples <br>
 ## ===============================================
-  A 1 //Sets A <br>
-  B 0 //Restes B <br>
-  JMP 2// goes to line 2 <br>
-  AC 1 // Sets AC <br>
-  JMP 0 // goes to line 0 <br>
-  A 7 // sets A with value 7
+> A 1 //Sets A <br>
+> B 0 //Restes B <br>
+> JMP 2// goes to line 2 <br>
+> AC 1 // Sets AC <br>
+> JMP 0 // goes to line 0 <br>
+> A 7 // sets A with value 7
  Use '#' to comment out the line comment
  And any words after first two words will be rejected/ignored
  example:-
@@ -52,7 +52,7 @@ it's just a raw circuit and you can visualize it on [Logisim-Evlution](https://g
  |-----first word 
  the ` this loads 5 to A` will be ignored
  look at files Code Example for any refrence
- 1)[It's displays 123456000456000456....](./assembler/light_blinker.lkc) in 7-segment
+ 1)[It's displays 123456000456000456....](./assembler/light_blinker.lkc) in 7-segment<br>
  2)[It moves three stips of light/led from left to right and loops back infintely](./assembler/left_to_right_window.lkc) in main output led
  
 ## ==================================================
