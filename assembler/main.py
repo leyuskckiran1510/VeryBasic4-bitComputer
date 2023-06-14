@@ -56,7 +56,7 @@ instructions = {
 
 
 def parse_file(file_name: str, is_relative: bool = True) -> bytes:
-    object_data = b""
+    object_data = b"\x00"
     if is_relative:
         absolute_path = os.path.join(os.curdir, file_name)
     else:
@@ -68,10 +68,22 @@ def parse_file(file_name: str, is_relative: bool = True) -> bytes:
         raise SystemError("File Cannot Be found please provide a valid path")
     for line in source.split("\n"):
         temp = 0
+        jumppy = 0
+        count = 0
+        if line.startswith("#") or line.startswith("\\"):
+            continue
         for word in line.split(" "):
             temp <<= 4
             word = "".join(sorted(word.strip().upper()))
+            if jumppy:
+                word = str((int(word) * 2) % 8)
+                jumppy = 0
             temp |= instructions[word]
+            if word == "JMP":
+                jumppy = 1
+            count += 1
+            if count == 2:
+                break
         object_data += temp.to_bytes(length=1, byteorder="big")
     return object_data
 

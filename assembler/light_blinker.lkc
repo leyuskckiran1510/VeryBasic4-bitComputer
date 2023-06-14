@@ -1,4 +1,10 @@
-A 1
+A 1 loading 1 to A 
+B 2
+C 3
+A 4
+B 5
+C 6
+A 0
 B 0
-AC 0
-JMP 2
+C 0
+JMP 3 it jumpes to line 3

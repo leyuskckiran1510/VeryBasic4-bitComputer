@@ -1,5 +1,7 @@
 # VeryBasic4-bitComputer <br>
 This is just a raw implementation for just to feed out brain a dopamine <br>
+It uses 3bit for data and 1 bit for data/instruction mode; So in total it's a 4bit programmable computer
+Which can be used to build light system or other system
 # instructions:- <br>
   A       -> load data to A <br>
   B       -> load data to B  <br>
@@ -40,8 +42,17 @@ This is just a raw implementation for just to feed out brain a dopamine <br>
   JMP 2// goes to line 2 <br>
   AC 1 // Sets AC <br>
   JMP 0 // goes to line 0 <br>
+  A 7 // sets A with value 7
+ Use '#' to comment out the line comment
+ And any words after first two words will be rejected/ignored
+ example:-
+ A 5 this loads 5 to A
+ ^ ^---second word
+ |-----first word 
+ the ` this loads 5 to A` will be ignored
+ look at file './light_blinker.lkc' for any refrence
 ## ==================================================
 ## to implement later after basics <br>
 ## =================================================
-  A B //Both A and B will have same value as B has <br>
-  A AC //And Value of A and C goes to A <br>
+  A B //Both A and B will have same value as B has OR `move content of B to A` <br>
+  A AC //And Value of A and C goes to A OR `move content of AC to A` <br>
