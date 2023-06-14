@@ -1,17 +1,24 @@
 import os
 
+SYSTEM_BIT = 3
 
-def generator() -> dict[str, str]:
-    dirty = """A       -> 1000
-    B       -> 1001
-    C       -> 1010
-    AB   -> 1011
-    AC   -> 1100
-    BC   -> 1101
-    ABC -> 1110
-    JMP     -> 1111
-    0       -> 0000
-    1       -> 0111"""
+
+def generator(dirty: str = "") -> dict[str, str]:
+    """
+    it takes a `->` directed instruction and it's respective binary code and generates a
+    instruciton dictonary
+    """
+    if not dirty:
+        dirty = """A       -> 1000
+        B       -> 1001
+        C       -> 1010
+        AB   -> 1011
+        AC   -> 1100
+        BC   -> 1101
+        ABC -> 1110
+        JMP     -> 1111
+        0       -> 0000
+        1       -> 0111"""
     instructions = {i.split("->")[0].strip(): f'0b{i.split("->")[1].strip()}' for i in dirty.split("\n")}
     return instructions
 
@@ -56,7 +63,7 @@ instructions = {
 
 
 def parse_file(file_name: str, is_relative: bool = True) -> bytes:
-    object_data = b"\x00"
+    object_data = b"\x00"  # jus a padding
     if is_relative:
         absolute_path = os.path.join(os.curdir, file_name)
     else:
@@ -72,13 +79,15 @@ def parse_file(file_name: str, is_relative: bool = True) -> bytes:
         count = 0
         if line.startswith("#") or line.startswith("\\"):
             continue
+        if len(line.strip()) < 1:
+            continue
         for word in line.split(" "):
             temp <<= 4
             word = "".join(sorted(word.strip().upper()))
             if jumppy:
-                word = str((int(word) * 2) % 8)
+                word = str((int(word) * 2) % (2**SYSTEM_BIT))
                 jumppy = 0
-            temp |= instructions[word]
+            temp |= instructions.get(word, 0)
             if word == "JMP":
                 jumppy = 1
             count += 1

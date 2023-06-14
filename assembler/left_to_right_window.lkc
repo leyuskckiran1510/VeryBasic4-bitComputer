@@ -1,0 +1,42 @@
+# window animation
+# 111000000
+# 011100000
+# 001110000
+# 000111000
+# 000011100
+# 000001110
+# 000000111
+# 100000011
+# 110000001
+# 111000000
+# A B C values for each line
+# 7 0 0
+# 3 4 0
+# 1 6 0
+# 0 7 0
+# 0 3 4
+# 0 1 6
+# 0 0 7
+# 4 0 3
+# 6 0 1
+# 7 0 0
+A 7
+BC 0
+A 3
+B 4
+A 1
+B 6
+A 0
+B 7
+B 3
+C 4
+B 1
+C 6
+B 0
+C 7
+A 4
+C 3
+A 6
+C 1
+JMP 0 # go back to 0th line to make a infinte loop
+# three strips of light will go from left to right infintely
