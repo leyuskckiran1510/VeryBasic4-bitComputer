@@ -69,14 +69,16 @@ def parse_file(file_name: str, is_relative: bool = True) -> bytes:
     for line in source.split("\n"):
         temp = 0
         for word in line.split(" "):
+            temp <<= 4
             word = "".join(sorted(word.strip().upper()))
-            temp = instructions[word]
-            object_data += temp.to_bytes(length=4, byteorder="big")
+            temp |= instructions[word]
+        object_data += temp.to_bytes(length=1, byteorder="big")
     return object_data
 
 
 def binary_object(input_file: str = "light_blinker.lkc", output_file: str = "output.bin"):
     bin_data = parse_file(input_file)
+    print(bin_data)
     with open(output_file, "wb") as file:
         file.write(bin_data)
 
