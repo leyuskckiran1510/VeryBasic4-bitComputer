@@ -1,47 +1,47 @@
-# VeryBasic4-bitComputer
-This is just a raw implementation for just to feed out brain a dopamine
-# instructions:-
-  A       -> load data to A
-  B       -> load data to B
-  C       -> load data to C
-  AB/BA   -> load data to AB
-  AC/CA   -> Load data to AC
-  BC/CB   -> load data to BC
-  ABC/BCA -> load data to ABC and notaion
-  JMP     -> jump to the nth line of code
+# VeryBasic4-bitComputer <br>
+This is just a raw implementation for just to feed out brain a dopamine <br>
+# instructions:- <br>
+  A       -> load data to A <br>
+  B       -> load data to B  <br>
+  C       -> load data to C <br>
+  AB/BA   -> load data to AB <br>
+  AC/CA   -> Load data to AC <br>
+  BC/CB   -> load data to BC <br>
+  ABC/BCA -> load data to ABC and notaion <br>
+  JMP     -> jump to the nth line of code <br>
 
-## ===========================================
-## Data values:-
-## ===========================================
-  A       -> 1000
-  B       -> 1001
-  C       -> 1010
-  AB/BA   -> 1011
-  AC/CA   -> 1100
-  BC/CB   -> 1101
-  ABC/BCA -> 1110
-  JMP     -> 1111
-  0       -> 0000
-  1       -> 0111
+## =========================================== <br>
+## Data values:- <br>
+## =========================================== <br>
+  A       -> 1000 <br>
+  B       -> 1001 <br>
+  C       -> 1010 <br>
+  AB/BA   -> 1011 <br>
+  AC/CA   -> 1100 <br>
+  BC/CB   -> 1101 <br>
+  ABC/BCA -> 1110 <br>
+  JMP     -> 1111 <br>
+  0       -> 0000 <br>
+  1       -> 0111 <br>
 
 ## =========================================
 ### Explanation of opcode
 ## ==========================================
-1001
-^^-^------- these are data values according to the above table
-|
-------------First Bit Denotes I/comp(D) i:e 1=Instruciton/0=Data
+1001 <br>
+^^-^------- these are data values according to the above table <br>
+| <br>
+------------First Bit Denotes I/comp(D) i:e 1=Instruciton/0=Data <br>
 
 ## ==============================================
-## Examples
+## Examples <br>
 ## ===============================================
-  A 1 //Sets A
-  B 0 //Restes B
-  JMP 2// goes to line 2
-  AC 1 // Sets AC
-  JMP 0 // goes to line 0
+  A 1 //Sets A <br>
+  B 0 //Restes B <br>
+  JMP 2// goes to line 2 <br>
+  AC 1 // Sets AC <br>
+  JMP 0 // goes to line 0 <br>
 ## ==================================================
-## to implement later after basics
+## to implement later after basics <br>
 ## =================================================
-  A B //Both A and B will have same value as B has
-  A AC //And Value of A and C goes to A
+  A B //Both A and B will have same value as B has <br>
+  A AC //And Value of A and C goes to A <br>
