@@ -1,0 +1,13 @@
+A 1 loading 1 to A 
+B 2
+C 3
+A 4 # jmp here
+B 5
+C 6
+A 0 # these three lines can be reduced to
+B 0 # ABC 0
+C 0 # to reduce redundancy
+JMP 3 it jumpes to line 3
+# Blinks lights or you can read the actual value
+# in 7-segment light 
+# shows 1 2 3 respectively for each ABC and 456 and then resets all regestres

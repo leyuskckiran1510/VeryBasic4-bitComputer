@@ -104,4 +104,4 @@ def binary_object(input_file: str = "light_blinker.lkc", output_file: str = "out
         file.write(bin_data)
 
 
-binary_object()
+binary_object("temp.lkc")
