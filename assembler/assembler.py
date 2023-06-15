@@ -63,7 +63,7 @@ instructions = {
 
 
 def parse_file(file_name: str, is_relative: bool = True) -> bytes:
-    object_data = b"\x00"  # jus a padding
+    object_data = b""
     if is_relative:
         absolute_path = os.path.join(os.curdir, file_name)
     else:
@@ -94,7 +94,7 @@ def parse_file(file_name: str, is_relative: bool = True) -> bytes:
             if count == 2:
                 break
         object_data += temp.to_bytes(length=1, byteorder="big")
-    return object_data
+    return object_data if object_data else b"\x00"
 
 
 def binary_object(input_file: str = "light_blinker.lkc", output_file: str = "output.bin"):
