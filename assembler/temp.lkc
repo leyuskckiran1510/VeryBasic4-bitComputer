@@ -20,8 +20,8 @@
 # 4 0 3
 # 6 0 1
 # 7 0 0
+C 0
 A 7
-BC 0
 A 3
 B 4
 A 1
@@ -38,5 +38,5 @@ A 4
 C 3
 A 6
 C 1
-JMP 7 # go back to 0th line to make a infinte loop
+JNZ 0 # go back to 0th line to make a infinte loop
 # three strips of light will go from left to right infintely

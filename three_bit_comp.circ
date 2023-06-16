@@ -55,7 +55,23 @@
     <a name="appearance" val="logisim_evolution"/>
     <a name="circuit" val="four_bit_computer"/>
     <a name="clabel" val="reset"/>
-    <a name="simulationFrequency" val="32.0"/>
+    <a name="simulationFrequency" val="128.0"/>
+    <appear>
+      <rect height="20" stroke="none" width="200" x="60" y="60"/>
+      <rect fill="none" height="30" stroke="#000000" stroke-width="2" width="200" x="60" y="50"/>
+      <text dominant-baseline="alphabetic" fill="#ffffff" font-family="Courier 10 Pitch" font-size="14" font-weight="bold" text-anchor="middle" x="166" y="74">four_bit_computer</text>
+      <visible-counter height="10" path="/Counter(1130,1450)" stroke-width="0" width="13" x="43" y="63"/>
+      <visible-sevensegment height="20" path="/7-Segment Display(1750,880)" stroke-width="0" width="14" x="265" y="23"/>
+      <visible-sevensegment height="20" path="/7-Segment Display(1810,880)" stroke-width="0" width="14" x="266" y="46"/>
+      <visible-sevensegment height="20" path="/7-Segment Display(1870,880)" stroke-width="0" width="14" x="265" y="70"/>
+      <visible-register height="10" path="/Register(2090,1160)" stroke-width="0" width="6" x="282" y="23"/>
+      <visible-register height="10" path="/Register(2270,1160)" stroke-width="0" width="6" x="282" y="47"/>
+      <visible-register height="10" path="/Register(2430,1160)" stroke-width="0" width="6" x="282" y="68"/>
+      <text dominant-baseline="central" font-family="SansSerif" font-size="12" text-anchor="middle" x="286" y="38">A</text>
+      <text dominant-baseline="central" font-family="SansSerif" font-size="12" text-anchor="middle" x="285" y="62">B</text>
+      <text dominant-baseline="central" font-family="SansSerif" font-size="12" text-anchor="middle" x="286" y="87">C</text>
+      <circ-anchor facing="east" x="50" y="50"/>
+    </appear>
     <comp lib="0" loc="(1120,1500)" name="Constant"/>
     <comp lib="0" loc="(1330,1510)" name="Ground"/>
     <comp lib="0" loc="(1370,1300)" name="Clock">
@@ -193,8 +209,7 @@
 8 7 d 0 8 3 9 4
 8 1 9 6 8 0 9 7
 9 3 a 4 9 1 a 6
-9 0 a 7 8 4 a 3
-8 6 a 1 f 6
+9 0 a 7 f 6
 </a>
       <a name="dataWidth" val="4"/>
       <a name="label" val="MainRom"/>

@@ -38,7 +38,7 @@ instructions = {
     "AB": 11,
     "AC": 12,
     "BC": 13,
-    "ABC": 14,
+    "JNZ": 14,
     "JMP": 15,
 }
 ## both are same
@@ -57,7 +57,7 @@ instructions = {
     "AB": 0b1011,
     "AC": 0b1100,
     "BC": 0b1101,
-    "ABC": 0b1110,
+    "JNZ": 0b1110,
     "JMP": 0b1111,
 }
 
@@ -83,6 +83,9 @@ def parse_file(file_name: str, is_relative: bool = True) -> bytes:
             continue
         for word in line.split(" "):
             temp <<= 4
+            if not word:
+                temp |= 0
+                continue
             word = "".join(sorted(word.strip().upper()))
             if jumppy:
                 word = str((int(word) * 2) % (2**SYSTEM_BIT))
