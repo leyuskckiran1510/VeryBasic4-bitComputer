@@ -1,4 +1,6 @@
-SUB A 1
-SUB B 1
-SUB C 1
-JNZ 0
+A 9
+B 9
+C 9
+loop:SUB C 1
+    JNZ loop
+RESET

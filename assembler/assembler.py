@@ -37,9 +37,11 @@ instructions = {
     "A": 10,
     "B": 11,
     "C": 12,
-    "SUM": 13,
+    "SUM": 8,
+    "SUB": 9,
     "JNZ": 14,
     "JMP": 15,
+    "RESET": 13,
 }
 ## both are same
 instructions = {
@@ -83,28 +85,30 @@ def parse_file(file_name: str, is_relative: bool = True) -> bytes:
         if len(_loop_var) == 2:
             instructions[_loop_var[0].strip().upper()] = len(object_data)
             line = _loop_var[-1]
-        if line.startswith("#") or line.startswith("\\"):
-            continue
-        if len(line.strip()) < 1:
+        if line.startswith("#") or line.startswith("\\") or len(line.strip()) < 1:
             continue
         for word in line.split(" "):
             temp <<= 4
-            if instructions.get(word, "comment") == "comment":
+            word = word.strip().upper()
+            if instructions.get(word, None) == None:
                 break
             if not word:
                 temp |= 0
                 continue
-            word = word.strip().upper()
             if jumppy:
-                word = str((int(word) * 2) % (2**SYSTEM_BIT))
-                jumppy = 0
-            temp |= instructions.get(word, 0)
-            if word == "JMP":
+                if temp != 0:
+                    temp <<= 4
+                temp |= instructions.get(word, 0) * 2
+                object_data += temp.to_bytes(length=1, byteorder="big")
+                temp = 0
+                break
+            else:
+                temp |= instructions.get(word, 0)
+            if word == "JMP" or word == "JNZ":
                 jumppy = 1
             if len(bin(temp)) > 6:
                 object_data += temp.to_bytes(length=1, byteorder="big")
                 temp = 0
-
     object_data += temp.to_bytes(length=1, byteorder="big")
     return object_data if object_data else b"\x00"
 
