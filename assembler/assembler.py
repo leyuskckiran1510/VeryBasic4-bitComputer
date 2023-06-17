@@ -32,38 +32,41 @@ instructions = {
     "5": 5,
     "6": 6,
     "7": 7,
-    "A": 8,
-    "B": 9,
-    "C": 10,
-    "AB": 11,
-    "AC": 12,
-    "BC": 13,
+    "8": 8,
+    "9": 9,
+    "A": 10,
+    "B": 11,
+    "C": 12,
+    "SUM": 13,
     "JNZ": 14,
     "JMP": 15,
 }
 ## both are same
 instructions = {
-    "0": 0b0000,
-    "1": 0b0001,
-    "2": 0b0010,
-    "3": 0b0011,
-    "4": 0b0100,
-    "5": 0b0101,
-    "6": 0b0110,
-    "7": 0b0111,
-    "A": 0b1000,
-    "B": 0b1001,
-    "C": 0b1010,
-    "AB": 0b1011,
-    "AC": 0b1100,
-    "BC": 0b1101,
+    "0": 0b0,
+    "1": 0b1,
+    "2": 0b10,
+    "3": 0b11,
+    "4": 0b100,
+    "5": 0b101,
+    "6": 0b110,
+    "7": 0b111,
+    "8": 0b1000,
+    "9": 0b1001,
+    "A": 0b1010,
+    "B": 0b1011,
+    "C": 0b1100,
+    "SUM": 0b1000,
+    "SUB": 0b1001,
     "JNZ": 0b1110,
     "JMP": 0b1111,
+    "RESET": 0b1101,
 }
 
 
 def parse_file(file_name: str, is_relative: bool = True) -> bytes:
     object_data = b""
+    temp = 0
     if is_relative:
         absolute_path = os.path.join(os.curdir, file_name)
     else:
@@ -74,29 +77,35 @@ def parse_file(file_name: str, is_relative: bool = True) -> bytes:
     else:
         raise SystemError("File Cannot Be found please provide a valid path")
     for line in source.split("\n"):
-        temp = 0
         jumppy = 0
-        count = 0
+        line = line.strip()
+        _loop_var = line.split(":")
+        if len(_loop_var) == 2:
+            instructions[_loop_var[0].strip().upper()] = len(object_data)
+            line = _loop_var[-1]
         if line.startswith("#") or line.startswith("\\"):
             continue
         if len(line.strip()) < 1:
             continue
         for word in line.split(" "):
             temp <<= 4
+            if instructions.get(word, "comment") == "comment":
+                break
             if not word:
                 temp |= 0
                 continue
-            word = "".join(sorted(word.strip().upper()))
+            word = word.strip().upper()
             if jumppy:
                 word = str((int(word) * 2) % (2**SYSTEM_BIT))
                 jumppy = 0
             temp |= instructions.get(word, 0)
             if word == "JMP":
                 jumppy = 1
-            count += 1
-            if count == 2:
-                break
-        object_data += temp.to_bytes(length=1, byteorder="big")
+            if len(bin(temp)) > 6:
+                object_data += temp.to_bytes(length=1, byteorder="big")
+                temp = 0
+
+    object_data += temp.to_bytes(length=1, byteorder="big")
     return object_data if object_data else b"\x00"
 
 
