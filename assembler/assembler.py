@@ -96,9 +96,13 @@ def parse_file(file_name: str, is_relative: bool = True) -> bytes:
                 temp |= 0
                 continue
             if jumppy:
+                if len(bin(temp)) > 6:
+                    object_data += temp.to_bytes(length=1, byteorder="big")
+                    temp = 0
                 if temp != 0:
                     temp <<= 4
                 temp |= instructions.get(word, 0) * 2
+                print(temp)
                 object_data += temp.to_bytes(length=1, byteorder="big")
                 temp = 0
                 break
