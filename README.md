@@ -1,4 +1,4 @@
-# VeryBasic4-bitComputer
+# VeryBasic 4-bit (**RISC**) Computer
 
 
 It's a 4-bit programable micro-controller,That has only LOAD,MOV,SUB,ADD,JNZ,JMP and RESET features due<br>it's limit of 4-bit instruciton set. It uses 8-bit address bus for addressing upto 255-addresses<br>
